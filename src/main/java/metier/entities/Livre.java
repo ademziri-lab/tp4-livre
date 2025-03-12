@@ -2,25 +2,49 @@ package metier.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "LIVRES")
 public class Livre implements Serializable {
+    
+    @Id
+    @Column(name = "ID_LIVRE")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idLivre;
+    
+    @Column(name = "TITRE")
     private String titre;
+    
+    @Column(name = "AUTEUR")
     private String auteur;
-    private double prix;
+    
+    @Column(name = "ANNEE")
     private int annee;
     
+    @Column(name = "PRIX")
+    private double prix;
+    
+   
     public Livre() {
         super();
     }
     
-    public Livre(String titre, String auteur, double prix, int annee) {
+    
+    public Livre(String titre, String auteur, int annee, double prix) {
         super();
         this.titre = titre;
         this.auteur = auteur;
-        this.prix = prix;
         this.annee = annee;
+        this.prix = prix;
     }
-
+    
+    
     public Long getIdLivre() {
         return idLivre;
     }
@@ -45,19 +69,19 @@ public class Livre implements Serializable {
         this.auteur = auteur;
     }
 
-    public double getPrix() {
-        return prix;
-    }
-
-    public void setPrix(double prix) {
-        this.prix = prix;
-    }
-
     public int getAnnee() {
         return annee;
     }
 
     public void setAnnee(int annee) {
         this.annee = annee;
+    }
+
+    public double getPrix() {
+        return prix;
+    }
+
+    public void setPrix(double prix) {
+        this.prix = prix;
     }
 }

@@ -53,7 +53,7 @@ public class ControleurServlet extends HttpServlet {
             double prix = Double.parseDouble(request.getParameter("prix"));
             int annee = Integer.parseInt(request.getParameter("annee"));
             
-            Livre l = metier.save(new Livre(titre, auteur, prix, annee));
+            Livre l = metier.save(new Livre(titre, auteur, annee, prix));
             request.setAttribute("livre", l);
             request.getRequestDispatcher("confirmation.jsp").forward(request, response);
         }
